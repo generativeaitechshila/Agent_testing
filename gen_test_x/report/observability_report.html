@@ -1,0 +1,105 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Generative AI Techshila Agent Evaluation Dashboard</title>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <style>
+            body { font-family: 'Inter', sans-serif; background-color: #0d1117; color: #c9d1d9; padding: 20px; }
+            .dashboard-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+            .card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 20px; margin-bottom: 20px; }
+            .metric-value { font-size: 2rem; font-weight: bold; color: #58a6ff; }
+            .status-badge { padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; }
+            .status-critical { background: #da3633; color: white; }
+            .status-healthy { background: #238636; color: white; }
+            table { width: 100%; border-collapse: collapse; }
+            th, td { text-align: left; padding: 12px; border-bottom: 1px solid #30363d; }
+        </style>
+    </head>
+    <body>
+        <h1>🚀 Generative AI Techshila </h1>
+         <h1> Agent Observability Report</h1>
+        
+        <div class="dashboard-grid">
+            <div class="card">
+                <div>AVG PRECISION</div>
+                <div class="metric-value">0.3325</div>
+            </div>
+            <div class="card">
+                <div>AVG CONFIDENCE</div>
+                <div class="metric-value">0.7</div>
+            </div>
+        </div>
+
+        <div class="dashboard-grid">
+            <div class="card">
+                <canvas id="precisionChart"></canvas>
+            </div>
+            <div class="card">
+                <canvas id="varianceChart"></canvas>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Detailed Trace</h3>
+            <table>
+                <thead><tr><th>ID</th><th>Score</th><th>Conf</th><th>Var</th><th>Status</th></tr></thead>
+                <tbody>
+        <tr>
+            <td>Step_1</td>
+            <td>0.5</td>
+            <td>0.8</td>
+            <td>0</td>
+            <td><span class="status-badge status-healthy">VERIFIED</span></td>
+        </tr>
+        
+        <tr>
+            <td>Step_2</td>
+            <td>0.0</td>
+            <td>0.5</td>
+            <td>0</td>
+            <td><span class="status-badge status-healthy">VERIFIED</span></td>
+        </tr>
+        
+        <tr>
+            <td>Step_3</td>
+            <td>0.33</td>
+            <td>0.8</td>
+            <td>0</td>
+            <td><span class="status-badge status-healthy">VERIFIED</span></td>
+        </tr>
+        
+        <tr>
+            <td>Step_4</td>
+            <td>0.5</td>
+            <td>0.7</td>
+            <td>0</td>
+            <td><span class="status-badge status-healthy">VERIFIED</span></td>
+        </tr>
+        </tbody>
+            </table>
+        </div>
+
+        <script>
+            new Chart(document.getElementById('precisionChart'), {
+                type: 'line',
+                data: {
+                    labels: ["Step 1", "Step 2", "Step 3", "Step 4"],
+                    datasets: [
+                        { label: 'Precision', data: [0.5, 0.0, 0.33, 0.5], borderColor: '#58a6ff' },
+                        { label: 'Confidence', data: [0.8, 0.5, 0.8, 0.7], borderColor: '#3fb950', borderDash: [5,5] }
+                    ]
+                }
+            });
+            new Chart(document.getElementById('varianceChart'), {
+                type: 'bar',
+                data: {
+                    labels: ["Step 1", "Step 2", "Step 3", "Step 4"],
+                    datasets: [{ label: 'Variance', data: [0, 0, 0, 0], backgroundColor: '#da3633' }]
+                }
+            });
+        </script>
+    </body>
+    </html>
+    

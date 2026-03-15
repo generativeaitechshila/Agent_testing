@@ -1,0 +1,53 @@
+{
+  "report_for": "C:\\Generative_AI_Projects\\gen_test_x\\input_data\\agent_history_tc_2.json",
+  "cases": [
+    {
+      "human_index": 0,
+      "human_step_index": 0,
+      "human_text": "Hi, I’m Rahul from Pune.",
+      "agent_answer": null,
+      "num_tools_used": 1,
+      "tool_names": [
+        "ProfileUpdateTool"
+      ],
+      "score": 0.7,
+      "reason": "The system updated the name but did not check flight availability, confirm details, or send an email to Rahul, indicating a partial success."
+    },
+    {
+      "human_index": 1,
+      "human_step_index": 4,
+      "human_text": "Is your smart speaker available for delivery in Pune?",
+      "agent_answer": "Yes, the Smart Speaker is available for delivery in Pune with 2-day shipping.",
+      "num_tools_used": 1,
+      "tool_names": [
+        "RAGRetriever"
+      ],
+      "score": 1.0,
+      "reason": "The actual outcome matches the desired task exactly, with the Smart Speaker available for delivery in Pune with 2-day shipping."
+    },
+    {
+      "human_index": 2,
+      "human_step_index": 10,
+      "human_text": "Okay great, please place one order for me.",
+      "agent_answer": "Your Smart Speaker order has been placed successfully. Order ID: ORD78965, expected delivery: 16th October.",
+      "num_tools_used": 1,
+      "tool_names": [
+        "OrderPlacementTool"
+      ],
+      "score": null,
+      "reason": "Evaluation failed: 1 validation error for TaskAndOutcome\noutcome\n  Input should be a valid string [type=string_type, input_value={'order_id': 'ORD78965', ...livery': '16th October'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/string_type"
+    },
+    {
+      "human_index": 3,
+      "human_step_index": 15,
+      "human_text": "Actually, change my shipping address to 302 Skyline Residency, Baner, Pune.",
+      "agent_answer": "Your address has been updated to 302 Skyline Residency, Baner, Pune for order ORD78965.",
+      "num_tools_used": 1,
+      "tool_names": [
+        "AddressUpdateTool"
+      ],
+      "score": 1.0,
+      "reason": "The actual outcome provided an updated shipping address in accordance with the desired task."
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "total_cases": 4,
+  "average_precision": "0.62",
+  "total_true_positives": 5,
+  "total_false_positives": 3,
+  "details": [
+    {
+      "step": 1,
+      "expected_plan": "Capture the user's profile details, including name and city, to personalize the conversation.",
+      "actual_plan": "Identify user profile context and store user name and city for personalization.",
+      "precision": 1.0,
+      "true_positives": 2,
+      "false_positives": 0,
+      "justification": "Both steps in the Actual Plan correctly match the core actions and purposes of the Expected Plan, with no irrelevant steps."
+    },
+    {
+      "step": 2,
+      "expected_plan": "The user inquired about product delivery availability. Use the RAG-based FAQ bot to provide the answer.",
+      "actual_plan": "User asked a product availability question. Use RAG-based ConversationalBot to answer.",
+      "precision": 1.0,
+      "true_positives": 2,
+      "false_positives": 0,
+      "justification": "Both the core action of inquiring about product delivery availability and the use of a RAG-based bot to provide the answer match between the Expected and Actual Plans, despite minor wording variations."
+    },
+    {
+      "step": 3,
+      "expected_plan": "User wants to place an item order. Forward this request to the Order Placement service.",
+      "actual_plan": "User wants to place an order. Route request to OrderTool.",
+      "precision": 0.5,
+      "true_positives": 1,
+      "false_positives": 1,
+      "justification": "The core action of placing an order matches, but the term 'OrderTool' is not equivalent to 'Order Placement service', leading to a false positive."
+    },
+    {
+      "step": 4,
+      "expected_plan": "The user intends to update their shipping address. Route this to the Address Update tool.",
+      "actual_plan": "User wants to create a ticket. Route to createticketTool.",
+      "precision": 0.0,
+      "true_positives": 0,
+      "false_positives": 2,
+      "justification": "The Actual Plan does not match the Expected Plan in terms of action or purpose. The user intends to update their shipping address, but the Actual Plan involves creating a ticket, which is irrelevant."
+    }
+  ]
+}

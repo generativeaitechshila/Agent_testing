@@ -1,0 +1,38 @@
+{
+  "avg_precision": 0.3325,
+  "avg_confidence": 0.7,
+  "details": [
+    {
+      "step": 1,
+      "precision": 0.5,
+      "confidence": 0.8,
+      "reasoning": "Step-by-step audit of plan alignment: The Expected Plan involves executing an authentication protocol and pulling broadband subscription metadata for support eligibility. The Actual Plan involves verifying user identity and retrieving account status for technical support. The core steps of both plans are related but not directly aligned. The verification of user identity can be seen as part of the authentication protocol, but retrieving account status does not directly correspond to pulling broadband subscription metadata. Therefore, there is one true positive and one false positive.",
+      "tp": 1,
+      "fp": 1
+    },
+    {
+      "step": 2,
+      "precision": 0.0,
+      "confidence": 0.5,
+      "reasoning": "The Actual plan addresses a user-reported Wi-Fi issue and routes to a diagnostic agent, but it does not explicitly initiate advanced network diagnostics via a specialized sub-module as outlined in the Expected plan. Therefore, the Actual plan does not fully align with the Expected plan.",
+      "tp": 0,
+      "fp": 1
+    },
+    {
+      "step": 3,
+      "precision": 0.33,
+      "confidence": 0.8,
+      "reasoning": "Step-by-step audit of plan alignment",
+      "tp": 1,
+      "fp": 2
+    },
+    {
+      "step": 4,
+      "precision": 0.5,
+      "confidence": 0.7,
+      "reasoning": "The Actual plan focuses on finalizing ticket creation and providing a tracking ID and SLA expectations, which partially aligns with the Expected plan's goal of dispatching confirmation and expected resolution timeframes. However, it does not explicitly mention dispatching confirmation or resolution timeframes, leading to a misalignment.",
+      "tp": 1,
+      "fp": 1
+    }
+  ]
+}

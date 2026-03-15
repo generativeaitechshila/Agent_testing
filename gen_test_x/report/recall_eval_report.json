@@ -1,0 +1,44 @@
+{
+  "total_cases": 4,
+  "average_recall": "0.62",
+  "total_true_positives": 5,
+  "total_false_negatives": 2,
+  "details": [
+    {
+      "step": 1,
+      "expected_plan": "Capture the user's profile details, including name and city, to personalize the conversation.",
+      "actual_plan": "Identify user profile context and store user name and city for personalization.",
+      "recall": 1.0,
+      "true_positives": 2,
+      "false_negatives": 0,
+      "justification": "Both expected steps of capturing the user's name and city are covered in the actual plan, despite slight wording differences."
+    },
+    {
+      "step": 2,
+      "expected_plan": "The user inquired about product delivery availability. Use the RAG-based FAQ bot to provide the answer.",
+      "actual_plan": "User asked a product availability question. Use RAG-based ConversationalBot to answer.",
+      "recall": 1.0,
+      "true_positives": 2,
+      "false_negatives": 0,
+      "justification": "Both the inquiry about product delivery availability and the use of a RAG-based bot to provide the answer are covered, despite minor wording differences."
+    },
+    {
+      "step": 3,
+      "expected_plan": "User wants to place an item order. Forward this request to the Order Placement service.",
+      "actual_plan": "User wants to place an order. Route request to OrderTool.",
+      "recall": 0.5,
+      "true_positives": 1,
+      "false_negatives": 1,
+      "justification": "The Actual Plan correctly identifies the user's intent to place an order (TP), but it does not correctly forward the request to the specified Order Placement service, instead routing it to OrderTool (FN)."
+    },
+    {
+      "step": 4,
+      "expected_plan": "The user intends to update their shipping address. Route this to the Address Update tool.",
+      "actual_plan": "User wants to create a ticket. Route to createticketTool.",
+      "recall": 0.0,
+      "true_positives": 0,
+      "false_negatives": 1,
+      "justification": "The Actual Plan does not cover the expected step of updating the shipping address and instead addresses a different action (creating a ticket)."
+    }
+  ]
+}

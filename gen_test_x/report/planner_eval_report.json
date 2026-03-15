@@ -1,0 +1,36 @@
+{
+  "total_cases": 4,
+  "passed": 3,
+  "failed": 1,
+  "pass_rate": "75.0%",
+  "details": [
+    {
+      "step": 1,
+      "expected_goal": "Capture the user's profile details, including name and city, to personalize the conversation.",
+      "actual_goal": "Identify user profile context and store user name and city for personalization.",
+      "status": "PASS",
+      "justification": "All good."
+    },
+    {
+      "step": 2,
+      "expected_goal": "The user inquired about product delivery availability. Use the RAG-based FAQ bot to provide the answer.",
+      "actual_goal": "User asked a product availability question. Use RAG-based ConversationalBot to answer.",
+      "status": "PASS",
+      "justification": "All good."
+    },
+    {
+      "step": 3,
+      "expected_goal": "User wants to place an item order. Forward this request to the Order Placement service.",
+      "actual_goal": "User wants to place an order. Route request to OrderTool.",
+      "status": "PASS",
+      "justification": "All good."
+    },
+    {
+      "step": 4,
+      "expected_goal": "The user intends to update their shipping address. Route this to the Address Update tool.",
+      "actual_goal": "User wants to create a ticket. Route to createticketTool.",
+      "status": "FAIL",
+      "justification": "Incorrect user intent and tool routing; Actual Plan misinterprets address update as ticket creation and routes to wrong tool."
+    }
+  ]
+}
